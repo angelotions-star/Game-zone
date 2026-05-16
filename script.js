@@ -1,48 +1,48 @@
 const loadGames = document.getElementById("loadGames");
+
 const gamesContainer = document.getElementById("gamesContainer");
 
 const games = [
 
     {
-        title: "Elden Ring",
-        genre: "RPG",
-        platform: "PC / PS5",
-        image: "https://images.unsplash.com/photo-1542751110-97427bbecf20"
+        title:"Elden Ring",
+        genre:"RPG",
+        platform:"PC / PS5",
+        image:"https://upload.wikimedia.org/wikipedia/en/b/b9/Elden_Ring_Box_art.jpg"
     },
 
     {
-        title: "Cyberpunk 2077",
-        genre: "Action",
-        platform: "PC / Xbox",
-        image: "https://images.unsplash.com/photo-1511512578047-dfb367046420"
+        title:"Cyberpunk 2077",
+        genre:"Action",
+        platform:"PC / Xbox",
+        image:"https://upload.wikimedia.org/wikipedia/en/9/9f/Cyberpunk_2077_box_art.jpg"
     },
 
     {
-        title: "God of War",
-        genre: "Adventure",
-        platform: "PlayStation",
-        image: "https://images.unsplash.com/photo-1493711662062-fa541adb3fc8"
+        title:"God of War",
+        genre:"Adventure",
+        platform:"PlayStation",
+        image:"https://upload.wikimedia.org/wikipedia/en/a/a7/God_of_War_4_cover.jpg"
     },
 
-    {
-        title: "Minecraft",
-        genre: "Sandbox",
-        platform: "Multi Platform",
-        image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f"
-    },
+   {
+    title:"Minecraft",
+    genre:"Sandbox",
+    platform:"Multi Platform",
+    image:"Minecraft-creeper-face.jpg"
+},
 
+{
+    title:"Fortnite",
+    genre:"Battle Royale",
+    platform:"PC / Console",
+    image:"images.jfif"
+},
     {
-        title: "Fortnite",
-        genre: "Battle Royale",
-        platform: "PC / Console",
-        image: "https://images.unsplash.com/photo-1560253023-3ec5d502959f"
-    },
-
-    {
-        title: "Valorant",
-        genre: "Shooter",
-        platform: "PC",
-        image: "https://images.unsplash.com/photo-1545239351-1141bd82e8a6"
+        title:"Valorant",
+        genre:"Shooter",
+        platform:"PC",
+        image:"https://upload.wikimedia.org/wikipedia/en/b/ba/Valorant_cover.jpg"
     }
 
 ];
@@ -51,33 +51,39 @@ loadGames.addEventListener("click", () => {
 
     gamesContainer.innerHTML = "";
 
-    games.forEach(game => {
+    games.forEach((game,index) => {
 
-        const card = document.createElement("div");
+        setTimeout(() => {
 
-        card.classList.add("game-card");
+            const card = document.createElement("div");
 
-        card.innerHTML = `
-            <img src="${game.image}" alt="${game.title}">
+            card.classList.add("game-card");
 
-            <div class="game-info">
+            card.innerHTML = `
 
-                <h3>${game.title}</h3>
+                <img src="${game.image}" alt="${game.title}">
 
-                <p>
-                    <strong>Género:</strong>
-                    ${game.genre}
-                </p>
+                <div class="game-info">
 
-                <p>
-                    <strong>Plataforma:</strong>
-                    ${game.platform}
-                </p>
+                    <h3>${game.title}</h3>
 
-            </div>
-        `;
+                    <p>
+                        <strong>Género:</strong>
+                        ${game.genre}
+                    </p>
 
-        gamesContainer.appendChild(card);
+                    <p>
+                        <strong>Plataforma:</strong>
+                        ${game.platform}
+                    </p>
+
+                </div>
+
+            `;
+
+            gamesContainer.appendChild(card);
+
+        }, index * 200);
 
     });
 
